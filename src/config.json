@@ -1,19 +1,19 @@
 {
-    "name":"My Project",
-    "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu aliquet ultricies, urna elit aliquam nunc, quis aliquet nunc nisl quis nisl.",
+    "name":"The Carlos",
+    "description":"The Carlos is the most fun frog NFT collection available in the SEI network!  Go mint now!",
     "website":"",
     "twitter":"",
     "discord":"",
-    "rpc":"",
-    "network":"atlantic-2", 
-    "collection_address":"", 
+    "rpc":"https://rpc.wallet.pacific-1.sei.io",
+    "network":"pacific-1", 
+    "collection_address":"sei1r56te37f3wjtqyenwhg38mhs99pl05h4neau7qjaycytuvzuastsw0m6vm", 
     "nft_name_type": "default",
     "groups":[
         {
             "name":"whitelist",
             "allowlist":[
-                "sei14v72v7hgzuvgck6v6jsgjacxnt34gj06qnx53d",
-                "sei1t22vwusjlxg4vp7gttsx7n2y9u4k0vv9lpk2ge"
+                "sei1p5dklpsqaux0umwa2mc0tcujqx455gu8zp654y",
+                "sei1ax68mx98ngnc7u3fgmzpe85vjfy27jskyuxc7w"
             ] 
         },
         {
