@@ -1,42 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 //props: {startdate: string, enddate: string}
-export const Timer = (props : any) => {
-    const [days, setDays] = useState(0)
-    const [hours, setHours] = useState(0)
-    const [minutes, setMinutes] = useState(0)
-    const [seconds, setSeconds] = useState(0)
+export const Timer = (props: any) => {
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
+  const start = React.useCallback(() => {
+    const enddate = new Date(props.date);
+    const now = new Date().getTime();
+    const distance = enddate.getTime() - now;
 
-    const enddate = new Date(props.date)
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    const start = () => {
-        const now = new Date().getTime()
-        const distance = enddate.getTime() - now
+    setDays(days);
+    setHours(hours);
+    setMinutes(minutes);
+    setSeconds(seconds);
+  }, [props.date]);
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24))
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000)
+  React.useEffect(() => {
+    start();
+  }, [start]);
 
-        setDays(days)
-        setHours(hours)
-        setMinutes(minutes)
-        setSeconds(seconds)
-    }
+  setInterval(start, 1000);
 
-    React.useEffect(() => {
-        start()
-    }, [])
-
-    setInterval(start, 1000)
-
-    return (
-        <>
-            {days !== 0 && days > 0 && days + "d "}
-            {hours !== 0 && hours > 0 && hours + "h "}
-            {minutes > 0 && minutes + "m "}
-            {seconds >= 0 && seconds + "s"}
-        </>
-    )
-}
+  return (
+    <>
+      {days !== 0 && days > 0 && days + "d "}
+      {hours !== 0 && hours > 0 && hours + "h "}
+      {minutes > 0 && minutes + "m "}
+      {seconds >= 0 && seconds + "s"}
+    </>
+  );
+};
